@@ -1,0 +1,16 @@
+# usage ansible-playbook -v sudoers.yml --ask-become-pass
+# enter password of the openstack user on managed host
+
+
+--- 
+
+ - name: Ensure users in the sudo group can sudo passwordless
+   become: true
+   become_method: sudo
+   lineinfile:
+     path: /etc/sudoers
+     state: present
+     regexp: '^%sudo'
+     line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+     validate: 'visudo -cf %s'
+
