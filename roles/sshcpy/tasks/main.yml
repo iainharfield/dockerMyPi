@@ -1,0 +1,12 @@
+# usage ansible-playbook -v sshcpy.yml -u ${USER} -k
+#
+# ${USER} is the management or controlling host
+# authorised_key is the target managed user.  Note: use ALL in the task to deploy key in all managed hosts
+
+--- 
+ - name: Copy key to target machine to allow SSH with out password
+   authorized_key:
+     state: present
+     user: pi
+     key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
