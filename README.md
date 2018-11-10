@@ -1,6 +1,6 @@
 # dockerMyPi
 
-execute the playbooks in the following order
+Execute the playbooks in the following order
 --------------------------------------------
 1) sudo ansible-playbook -v sshcpy.yml -u ${USER} -k
 2) sudo ansible-playbook -v docker-install-raspbian.yml
