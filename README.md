@@ -6,7 +6,7 @@ Minimum Pre-requisits:
 ----------------------
 1) Down load the headless image from here:  https://www.raspberrypi.org/downloads/raspbian/
 2) Burn the image
-3) Edit the image to activate the SSH. Create a file named ssh in the boot partition (the file does not expect any extension). 
+3) Edit the image to activate the SSH. Create a file named ssh in the boot partition (no file extension). 
 4) plug into your Pi and SSH should work
 
 Execute the playbooks in the following order from Ansible server:
