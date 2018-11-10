@@ -16,7 +16,7 @@ Execute the playbooks in the following order from Ansible server:
 3) sudo ansible-playbook -v sudoers.yml --ask-become-pass
 4) sudo ansible-playbook -v portainer.yml 
 
-When propted for SSH password - its the RPI password.
+When prompted for SSH password - its the RPI password.
 
 To access the Portainer UI:
   <ipaddress of RPI>:9000
