@@ -20,10 +20,13 @@ Execute the playbooks in the following order from Ansible server:
 When prompted for SSH password - its the RPI password.
 
 To access the Portainer UI from a browser enter:
-
-  "ipaddress-of-RPI":9000
-
+<blockquote>
+<p>"ipaddress-of-RPI":9000</p>
+</blockquote>
 
 Sometimes I get Unreachable message- don't really know why.  To fix this I execute:
-    ansible all -m ping
-and then retry the playbook.   Not spent any time figuring it out.
+<blockquote>
+<p>ansible all -m ping</p>
+</blockquote>
+    
+and then retry the playbook. Not spent any time figuring it out.
