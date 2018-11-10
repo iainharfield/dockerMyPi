@@ -4,8 +4,8 @@ A set of Ansible scripts to set up a Raspberry Pi with Docker and some utilities
 
 Minimum Pre-requisits:
 ----------------------
-1) Ansible and ansible_hosts file is already configured on 
-2) Down load the headless image from here:  https://www.raspberrypi.org/downloads/raspbian/
+1) Ansible and ansible_hosts file is already configured on Ansible server.
+2) Download the headless image from here:  https://www.raspberrypi.org/downloads/raspbian/
 3) Burn the image (e.g. Win32DiskImager,balenaEtcher etc.)
 4) Edit the image to activate the SSH. Create a file named ssh in the boot partition (no file extension). 
 5) plug into your Pi and SSH should work
