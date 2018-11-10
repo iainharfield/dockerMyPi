@@ -6,9 +6,9 @@ Minimum Pre-requisits:
 ----------------------
 1) Ansible and ansible_hosts file is already configured on Ansible server.
 2) Download the headless image from here:  https://www.raspberrypi.org/downloads/raspbian/
-3) Burn the image (e.g. Win32DiskImager,balenaEtcher etc.)
-4) Edit the image to activate the SSH. Create a file named ssh in the boot partition (no file extension). 
-5) plug into your Pi and SSH should work
+3) Burn the image onto  your SD card (e.g. Win32DiskImager,balenaEtcher etc.)
+4) Edit the SD card image to activate the SSH. Create a file named "ssh" in the boot partition (no file extension). 
+5) Plug SD card into your Pi and SSH should work.
 
 Execute the playbooks in the following order from Ansible server:
 -----------------------------------------------------------------
@@ -27,9 +27,9 @@ To access the Portainer UI from a browser enter:
 
 Issues
 ------
-Sometimes I get Unreachable message- don't really know why.  To fix this I execute:
+Sometimes I get "Unreachable" message when executing a playbook - don't know why at the moment.  To bypass this I execute:
 <blockquote>
 <p>ansible all -m ping</p>
 </blockquote>
     
-and then retry the playbook. Not spent any time figuring it out.
+and then retry the playbook which then seems to run fine. I've not spent any time figuring it out.
