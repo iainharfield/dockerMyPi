@@ -1,0 +1,21 @@
+# Install Portainer container Docker
+# Access to portainer:
+#  ip addr:9000
+---
+  - name: Create a volume
+    docker_volume:
+      name: portainer_data
+
+  - name: Restart a container
+    docker_container:
+      name: Portainer
+      image: portainer/portainer
+      state: started
+      restart: yes
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock"
+        - "portainer_data:/data portainer/portainer"
+      ports:
+        - "9000:9000"
+
+
