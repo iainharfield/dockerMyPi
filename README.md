@@ -20,6 +20,7 @@ Execute the playbooks in the following order from Ansible server:
 When prompted for SSH password - its the RPI password.
 
 To access the Portainer UI from a browser enter:
+
   "ipaddress-of-RPI":9000
 
 
