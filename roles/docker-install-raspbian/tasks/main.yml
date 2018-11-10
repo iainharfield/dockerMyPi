@@ -1,0 +1,94 @@
+# Install Docker onto raspbian lite
+---
+  - name: apt-get update
+    become: true
+    become_method: sudo
+    apt: update-cache=yes
+
+  - name: apt-get install git
+    become: true
+    become_method: sudo
+    apt: name=git  update-cache=yes
+    
+  - name: Get rpi-clone from git
+    become: true
+    become_method: sudo
+    git: repo=https://github.com/billw2/rpi-clone.git  dest=/usr/local/sbin
+     
+  - name: apt-get update
+    become: true
+    become_method: sudo
+    apt: update-cache=yes
+        
+  - name: Install pip
+    become: true
+    become_method: sudo
+    apt: name=python-pip update-cache=yes
+    register: out
+
+  - debug: var=out.stdout_lines  
+     
+  - name: Upgrade pip
+    become: true
+    become_method: sudo
+    easy_install:
+      name: pip
+      state: latest
+    register: out  
+  
+  - debug: var=out.stdout_lines    
+    
+#  - name: Install docker
+#    become: true
+#    become_method: sudo
+#    pip:
+#      name: docker
+#    register: out
+#    
+#  - debug: var=out.stdout_lines
+    
+    
+    
+#  - name: Install Docker using curl
+#    become: true
+#    become_method: sudo
+#    shell: curl -sSL get.docker.com | sh
+#    register: out
+#
+#  - debug: var=out.stdout_lines
+  
+  
+  - name: Install docker-compose 1.9.0 (needs to be this version docker-py)
+    become: true
+    become_method: sudo
+    pip:
+      name: docker-compose
+      version: 1.9.0
+    register: out
+    
+  - debug: var=out.stdout_lines
+  
+  - name: Configure Docker to auto start
+    become: true
+    become_method: sudo
+    command: systemctl enable docker
+    register: out
+
+  - debug: var=out.stdout_lines
+
+
+ # - name: Install docker-py 
+ #   become: true
+ #   become_method: sudo
+ #   pip:
+ #     name: docker-py
+ #   register: out 
+ #   
+ # - debug: var=out.stdout_lines
+  
+  - name: Add pi or your equivalent user to the docker group
+    become: true
+    become_method: sudo
+    command: usermod -aG docker pi
+    register: out
+    
