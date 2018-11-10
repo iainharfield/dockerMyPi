@@ -1,0 +1,9 @@
+---
+# This playbook installs and starts Portainer container.  
+
+- name: apply common configuration to all nodes
+  hosts: docker-nodes-raspbian
+  remote_user: pi
+ 
+  roles:
+    - role: portainer

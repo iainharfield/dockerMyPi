@@ -1,0 +1,9 @@
+---
+# This playbook installs docker on raspian.  
+
+- name: apply common configuration to all nodes
+  hosts: docker-nodes-raspbian
+  remote_user: pi
+ 
+  roles:
+    - role: docker-install-raspbian

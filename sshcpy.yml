@@ -1,0 +1,10 @@
+- name: Install devstack
+  hosts: docker-nodes-raspbian
+  vars_files:
+  - customise.yml
+  remote_user: "{{ username }}"
+
+
+  roles:
+    - role: sshcpy
+

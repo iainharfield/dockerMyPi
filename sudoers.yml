@@ -1,0 +1,13 @@
+# Usage:
+#  sudo ansible-playbook -v sudoers.yml --ask-become-pass
+
+- name: Allow execution of sudo commands without password prompts
+  hosts: docker-nodes-raspbian
+  vars_files:
+  - customise.yml
+  remote_user: "{{ username }}"
+
+
+  roles:
+    - role: sudoers
+
