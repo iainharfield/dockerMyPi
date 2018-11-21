@@ -6,16 +6,30 @@
     docker_volume:
       name: portainer_data
 
-  - name: Restart a container
-    docker_container:
-      name: Portainer
-      image: portainer/portainer
-      state: started
-      restart: yes
-      volumes:
-        - "/var/run/docker.sock:/var/run/docker.sock"
-        - "portainer_data:/data portainer/portainer"
-      ports:
-        - "9000:9000"
+  - name: Ensures portainer dir exists
+    file: path=~/portainer state=directory  
+
+  - name: Copy Portainer Docker compose
+    copy:
+      src: ../templates/docker-compose.yml
+      dest: ~/portainer/docker-compose.yml
+      mode: 0755
+
+  - name: Start Portainer
+    docker_service:
+      project_src: ~/portainer
+
+#  - name: Restart a container
+#    docker_container:
+#      name: Portainer
+#      image: portainer/portainer
+#      state: started
+#      restart: yes
+#      volumes:
+#        - "/var/run/docker.sock:/var/run/docker.sock"
+#        - "portainer_data:/data portainer/portainer"
+#      ports:
+#        - "9000:9000"
+
 
 
